@@ -1,7 +1,7 @@
-<?php namespace Hamedmehryar\SessionTracker\Middleware;
+<?php namespace Seismicsix\SessionTracker\Middleware;
 
 use Closure;
-use Hamedmehryar\SessionTracker\SessionTrackerFacade;
+use Seismicsix\SessionTracker\SessionTrackerFacade;
 use \Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Config;
 

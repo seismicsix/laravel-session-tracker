@@ -1,4 +1,4 @@
-<?php namespace Hamedmehryar\SessionTracker\Middleware;
+<?php namespace Seismicsix\SessionTracker\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Cookie;

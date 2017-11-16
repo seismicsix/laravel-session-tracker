@@ -1,4 +1,4 @@
-<?php namespace Hamedmehryar\SessionTracker;
+<?php namespace Seismicsix\SessionTracker;
 
 
 class AuthenticationHandler {
@@ -24,6 +24,6 @@ class AuthenticationHandler {
      */
     public function subscribe($events)
     {
-        $events->listen('Illuminate\Auth\Events\Login', 'Hamedmehryar\SessionTracker\AuthenticationHandler@onLogin');
+        $events->listen('Illuminate\Auth\Events\Login', 'Seismicsix\SessionTracker\AuthenticationHandler@onLogin');
     }
 }

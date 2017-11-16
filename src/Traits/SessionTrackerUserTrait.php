@@ -1,8 +1,8 @@
-<?php namespace Hamedmehryar\SessionTracker\Traits;
+<?php namespace Seismicsix\SessionTracker\Traits;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Application;
-use Hamedmehryar\SessionTracker\Models\Session as SessionTrack;
+use Seismicsix\SessionTracker\Models\Session as SessionTrack;
 
 trait SessionTrackerUserTrait{
 
@@ -17,7 +17,7 @@ trait SessionTrackerUserTrait{
     }
 
     public function sessions(){
-        return $this->hasMany('Hamedmehryar\SessionTracker\Models\Session');
+        return $this->hasMany('Seismicsix\SessionTracker\Models\Session');
     }
 
     public function getFreshestSession(){
@@ -25,7 +25,7 @@ trait SessionTrackerUserTrait{
     }
 
     public function devices(){
-        return $this->hasMany('Hamedmehryar\SessionTracker\Models\Device');
+        return $this->hasMany('Seismicsix\SessionTracker\Models\Device');
     }
 
     public function devicesUids(){

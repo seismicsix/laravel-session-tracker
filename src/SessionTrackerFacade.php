@@ -1,4 +1,4 @@
-<?php namespace Hamedmehryar\SessionTracker;
+<?php namespace Seismicsix\SessionTracker;
 
 /**
  * This file is part of SessionTracker

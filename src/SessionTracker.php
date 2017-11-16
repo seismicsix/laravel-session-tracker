@@ -1,7 +1,7 @@
-<?php namespace Hamedmehryar\SessionTracker;
+<?php namespace Seismicsix\SessionTracker;
 
-use Hamedmehryar\SessionTracker\Models\Device;
-use Hamedmehryar\SessionTracker\Models\Session;
+use Seismicsix\SessionTracker\Models\Device;
+use Seismicsix\SessionTracker\Models\Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
@@ -60,7 +60,7 @@ class SessionTracker
      * @return bool
      */
     public function refreshSession($request){
-        return Session::refresh($request);
+        return Session::refreshSes($request);
     }
 
     /**

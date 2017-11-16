@@ -1,4 +1,4 @@
-<?php namespace Hamedmehryar\SessionTracker;
+<?php namespace Seismicsix\SessionTracker;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
@@ -18,7 +18,7 @@ class SessionTrackerServiceProvider extends ServiceProvider {
 		]);
 
 		$router = $this->app['router'];
-		$router->middleware('session', 'Hamedmehryar\SessionTracker\Middleware\SessionTracker');
+		$router->middleware('session', 'Seismicsix\SessionTracker\Middleware\SessionTracker');
 	}
 
 	/**
@@ -49,7 +49,7 @@ class SessionTrackerServiceProvider extends ServiceProvider {
 
 	private function registerAuthenticationEventHandler(){
 
-		Event::subscribe('Hamedmehryar\SessionTracker\AuthenticationHandler');
+		Event::subscribe('Seismicsix\SessionTracker\AuthenticationHandler');
 	}
 
 }
