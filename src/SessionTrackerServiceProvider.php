@@ -13,8 +13,8 @@ class SessionTrackerServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->publishes([
-			base_path('vendor/hamedmehryar/laravel-session-tracker/src/config/config.php') => config_path('sessionTracker.php'),
-			base_path('vendor/hamedmehryar/laravel-session-tracker/src/migrations') => base_path('database/migrations')
+			base_path('vendor/seismicsix/laravel-session-tracker/src/config/config.php') => config_path('sessionTracker.php'),
+			base_path('vendor/seismicsix/laravel-session-tracker/src/migrations') => base_path('database/migrations')
 		]);
 
 		$router = $this->app['router'];
@@ -29,7 +29,7 @@ class SessionTrackerServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->mergeConfigFrom(
-			base_path('vendor/hamedmehryar/laravel-session-tracker/src/config/config.php'), 'sessionTracker'
+			base_path('vendor/seismicsix/laravel-session-tracker/src/config/config.php'), 'sessionTracker'
 		);
 		$this->registerSessionTracker();
 		$this->registerAuthenticationEventHandler();
