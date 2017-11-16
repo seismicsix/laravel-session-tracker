@@ -1,5 +1,5 @@
 {
-    "name": "hamedmehryar/laravel-session-tracker",
+    "name": "seismicsix/laravel-session-tracker",
     "description": "This package provides session tracking functionalities, multisession management and user device management features for laravel applications.",
     "type": "library",
     "require": {
@@ -17,7 +17,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Hamedmehryar\\SessionTracker\\": "src/"
+            "Seismicsix\\SessionTracker\\": "src/"
         }
     },
     "minimum-stability": "stable"
