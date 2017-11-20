@@ -29,9 +29,13 @@ trait SessionTrackerUserTrait{
     }
 
     public function devicesUids(){
-        $query = $this->devices()->lists('uid');
-        if(! str_contains(Application::VERSION, '5.0')){
+        //for 5.2 version above
+        $query = $this->devices()->pluck('uid');
+
+        if(!str_contains(Application::VERSION, '5.0')){
             $query = $query->all();
+        } else if(str_contains(Application::VERSION, '5.0') || str_contains(Application::VERSION, '5.1')){
+            $query = $this->devices()->lists('uid');
         }
         return $query;
     }
