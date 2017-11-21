@@ -13,10 +13,10 @@ class Session extends Model {
 
 
 
-    //protected $table = 'sessiontracker_sessions';
-    protected $table = 'sessions'; //custom sessions table
+    protected $table = 'sessiontracker_sessions';
+    //protected $table = 'sessions'; //custom sessions table
 
-    protected $fillable = ['user_id','ip_address','last_activity','browser','browser_version','platform','platform_version','mobile','device','location','robot','block','blocked_by','device_uid','login_code'];
+    protected $fillable = ['user_id','ip','last_activity','browser','browser_version','platform','platform_version','mobile','device','location','robot','block','blocked_by','device_uid','login_code','sessions_id'];
 
     const STATUS_DEFAULT = NULL;
     const STATUS_BLOCKED = 1;
@@ -38,9 +38,8 @@ class Session extends Model {
 
 
         $session =  self::create([
-            'id'      => SessionLaravel::getId(),
             'user_id' => Auth::user()->id,
-            'ip_address' => $_SERVER['REMOTE_ADDR'],
+            'ip' => $_SERVER['REMOTE_ADDR'],
             'last_activity'=> Carbon::now(),
             "browser" =>  $agent->browser(),
             "browser_version" => $agent->version($agent->browser()),
@@ -49,7 +48,7 @@ class Session extends Model {
             "mobile" => $agent->isMobile(),
             "device" =>  $agent->device(),
             "robot" => $agent->isRobot(),
-            "device_uid" => Cookie::get('d_i', NULL)
+            "device_uid" => Cookie::get('d_i', NULL),
         ]);
 
         \Illuminate\Support\Facades\Session::put('dbsession.id', $session->id);
