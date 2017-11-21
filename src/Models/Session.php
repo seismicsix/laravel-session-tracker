@@ -4,11 +4,12 @@ use Carbon\Carbon;
 use Seismicsix\SessionTracker\SessionTrackerFacade;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session as SessionLaravel;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cookie;
 use Jenssegers\Agent\Agent;
 
-class Session extends Model {
+class SessionTracker extends Model {
 
 
 
@@ -35,7 +36,9 @@ class Session extends Model {
 
 	      $agent = new Agent();
 
+
         $session =  self::create([
+            'id'      => SessionLaravel::getId(),
             'user_id' => Auth::user()->id,
             'ip_address' => $_SERVER['REMOTE_ADDR'],
             'last_activity'=> Carbon::now(),
@@ -48,6 +51,7 @@ class Session extends Model {
             "robot" => $agent->isRobot(),
             "device_uid" => Cookie::get('d_i', NULL)
         ]);
+
         \Illuminate\Support\Facades\Session::put('dbsession.id', $session->id);
 
         return $session;
