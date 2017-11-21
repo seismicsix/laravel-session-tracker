@@ -10,11 +10,12 @@ use Jenssegers\Agent\Agent;
 
 class Session extends Model {
 
-    
-	
-    protected $table = 'sessiontracker_sessions';
 
-    protected $fillable = ['user_id','browser','browser_version','platform','platform_version','mobile','device','robot','device_uid', 'ip','last_activity'];
+
+    //protected $table = 'sessiontracker_sessions';
+    protected $table = 'sessions'; //custom sessions table
+
+    protected $fillable = ['user_id','browser','browser_version','platform','platform_version','mobile','device','robot','device_uid', 'ip_address','last_activity'];
 
     const STATUS_DEFAULT = NULL;
     const STATUS_BLOCKED = 1;
@@ -25,15 +26,15 @@ class Session extends Model {
 
     public static function start(){
 
-	$deviceId = Cookie::get('d_i', NULL);
+	      $deviceId = Cookie::get('d_i', NULL);
         $userId = Auth::user()->id;
         $dateNow = Carbon::now();
         if($deviceId){
             self::where('device_uid', $deviceId)->where('user_id', $userId)->whereNull('end_date')->update(['end_date' => $dateNow]);
         }
-	    
-	$agent = new Agent();
-	    
+
+	      $agent = new Agent();
+
         $session =  self::create([
             'user_id' => Auth::user()->id,
             "browser" =>  $agent->browser(),
@@ -48,7 +49,7 @@ class Session extends Model {
             'last_activity'=> Carbon::now()
         ]);
         \Illuminate\Support\Facades\Session::put('dbsession.id', $session->id);
-		
+
         return $session;
     }
 
