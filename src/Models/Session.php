@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cookie;
 use Jenssegers\Agent\Agent;
 
-class SessionTracker extends Model {
+class Session extends Model {
 
 
 
