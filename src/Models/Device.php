@@ -21,6 +21,11 @@ class Device extends Model {
         return false;
     }
 
+    public function sessions()
+    {
+        return $this->hasMany('Seismicsix\SessionTracker\Models\Session','uid','device_uuid');
+    }    
+
     public static function addUserDevice(){
 		$agent = new Agent();
         if(Cookie::has('d_i')){
