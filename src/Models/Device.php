@@ -23,7 +23,7 @@ class Device extends Model {
 
     public function sessions()
     {
-        return $this->hasMany('Seismicsix\SessionTracker\Models\Session','uid','device_uuid');
+        return $this->hasMany('Seismicsix\SessionTracker\Models\Session','device_uuid','uid');
     }    
 
     public static function addUserDevice(){
